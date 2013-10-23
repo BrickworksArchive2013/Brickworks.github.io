@@ -1,63 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Brickworks</title>
-    <!-- Le styles -->
-    <link href="./css/bootstrap.css" rel="stylesheet">
-    <link href="./css/index.css" rel="stylesheet">
-    <!-- Le scripts -->
-    <script src="./assets/js/jquery.js"></script>
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    <script src="./js/html5shiv.js"></script>
-    <![endif]-->
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="../../assets/js/html5shiv.js"></script>
-    <script src="../../assets/js/respond.min.js"></script>
-    <![endif]-->
-    <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="./assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="./assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="./assets/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="./assets/ico/favicon.png">
-  </head>
-  <body>
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">About</a></li>
+---
+layout: default
+Title: Brickworks
+extra_css:
+- /css/index.css
+---
+<div class="row">
+    <h1 id="slogan">We study images.</h1>
+    <div class="col-md-12">
+        <h3 class="section-title">Recent updates</h3>
+        {% for post in site.posts limit:10 %}
+        <ul class="post-{{ post.category }}">
+            <li>
+                <abbr>{{ post.date | date_to_string }}</abbr>,
+                {% if post.show_url == nil %}
+                {% if post.external_url == nil %}
+                {{ post.title }}
+                {% else %}
+                <a href="{{ post.external_url }}">{{ post.title }}</a>
+                {% endif %}
+                {% else %}
+                {% if post.external_url == nil %}
+                <a href="{{ post.url }}">{{ post.title }}</a>
+                {% else %}
+                <a href="{{ post.external_url }}">{{ post.title }}</a>
+                {% endif %}
+                {% endif %}
+                {% for ca in post.categories %}
+                <span class="category">{{ca | upcase}}</span>
+                {% endfor %}
+            </li>
         </ul>
-        <h3 class="text-muted">Brickworks</h3>
-      </div>
-      <div id="myCarousel" class="carousel slide">
-        <div class="carousel-inner">
-          <div class="item active">
-            <img src="./photo/brickworks1013.jpg" alt="">
-            <div id="box_weida" class="bounding-box"></div>
-            <div id="box_ruobing" class="bounding-box"></div>
-            <div id="box_sirui" class="bounding-box"></div>
-            <div id="box_zhijing" class="bounding-box"></div>
-            <div id="box_yuwei" class="bounding-box"></div>
-            <div id="box_xuhui" class="bounding-box"></div>
-            <div id="box_xiaolong" class="bounding-box"></div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12" id="brickworks-caption">
-            <p>Left to right in terms of head position: <span id="p_weida" class="badge people">Weida</span>, <span id="p_ruobing" class="badge people">Ruobing</span>, <span id="p_sirui" class="badge people">Sirui</span>, <span id="p_zhijing" class="badge people">Zhijing</span>, <span id="p_yuwei" class="badge people">Yuwei</span>, <span id="p_xuhui" class="badge people">Xuhui</span>, <span id="p_xiaolong" class="badge people">Xiaolong</span>.</p>
-          </div>
-        </div>
-        <div class="footer">
-          <p>&copy; Brickworks 2013</p>
-        </div>
-      </div>
+        {% endfor %}
     </div>
-    <script src="./js/index.js"></script>
-  </body>
-</html>
+</div>

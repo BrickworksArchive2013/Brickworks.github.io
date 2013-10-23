@@ -1,0 +1,3 @@
+url: http://brickworks.github.io
+#markdown: rdiscount
+exclude: ['Rakefile.rb', 'CNAME', 'README.md']
