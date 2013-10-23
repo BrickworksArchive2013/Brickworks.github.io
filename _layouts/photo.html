@@ -1,0 +1,33 @@
+---
+layout: default
+extra_css:
+- /css/photo.css
+extra_js:
+- /js/photo.js
+---
+
+<div class="row">
+  <div class="col-md-12 post">
+    <div id="myCarousel" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="item active">
+            <img src="{{ page.photo_url }}" alt="">
+            {% for people in page.box %}
+            <div id="box_{{people.name}}" class="bounding-box" style="left:{{people.left}};top:{{people.top}};width:{{people.width}};height:{{people.height}};"></div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12" id="brickworks-caption">
+            <p>Left to right in terms of head position: <span id="p_weida" class="badge people">Weida</span>, <span id="p_ruobing" class="badge people">Ruobing</span>, <span id="p_sirui" class="badge people">Sirui</span>, <span id="p_zhijing" class="badge people">Zhijing</span>, <span id="p_yuwei" class="badge people">Yuwei</span>, <span id="p_xuhui" class="badge people">Xuhui</span>, <span id="p_xiaolong" class="badge people">Xiaolong</span>.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12" id="brickworks-caption">
+            {{ content }}
+          </div>
+        </div>
+    </div>
+    <hr />
+  </div>
+</div>
