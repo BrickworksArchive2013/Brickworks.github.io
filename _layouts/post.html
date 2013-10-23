@@ -1,0 +1,14 @@
+---
+layout: default
+extra_css:
+- /css/post.css
+---
+<div class="row">
+  <div class="col-md-12 post">
+    <h2 id="title"><a href="{{ page.url }}">
+    {{ page.title }}
+    </a></h2>
+    <div id="date">Published on {{ page.date | date_to_string }}, by {{ page.author}} </div>
+    {{ content }}
+  </div>
+</div>
