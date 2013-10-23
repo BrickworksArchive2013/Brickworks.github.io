@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 观37Singals有感
+title: 观37signals有感
 author: Xiaolong ZHU
 show_url: true
 ---

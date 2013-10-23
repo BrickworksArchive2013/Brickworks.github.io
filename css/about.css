@@ -1,22 +1,22 @@
 img.photo {
-  height: auto;
-  margin-left:auto;
-  margin-right:auto;
+height: auto;
+margin-left:auto;
+margin-right:auto;
 }
-
 div.people h4 {
-    text-align: center;
-    color: #333;
+text-align: center;
+color: #333;
 }
-
 div.people h5 {
-    text-align: center;
-    font-weight: normal;
+text-align: center;
+font-weight: normal;
 }
-
 h1.slogan {
-    text-align: center;
-    font-weight: normal;
-    margin-top: 12%;
-    margin-bottom: 12%;
+text-align: center;
+font-weight: normal;
+margin-top: 12%;
+margin-bottom: 12%;
+}
+div.people ul {
+padding-left: inherit;
 }
